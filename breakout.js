@@ -8,10 +8,8 @@ function renderGames(){
 
 function Breakout(div, width, height){
 	this.container = div;
-	this.canvas = jQuery('<canvas width="600" height="400"></canvas>')[0];
-	jQuery(this.canvas).mousemove(this, function(event){ event.data.onMouseMove(event); }); 
-	jQuery(this.canvas).width(width);
-	jQuery(this.canvas).height(height);
+	this.canvas = jQuery('<canvas width="600px" height="400px"></canvas>')[0];
+	jQuery(this.canvas).mousemove(this, function(event){ event.data.onMouseMove(event); });
 	this.container.append(this.canvas);
 	this.ctx = this.canvas.getContext('2d');
 	this.ball = new BreakoutBall(this);
@@ -79,7 +77,7 @@ function Breakout(div, width, height){
 	}
 	
 	this.onMouseMove = function(event){
-		this.paddleX = event.clientX-this.canvas.offsetLeft;
+		this.paddleX = event.offsetX;
 	}
 }
 
